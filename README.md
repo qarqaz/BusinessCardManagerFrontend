@@ -35,3 +35,15 @@ The frontend connects to the backend API at: http://localhost:44304/api/business
 
 To get more help on the Angular CLI, use **ng help** or visit the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+## Sample Screenshots
+
+### Home Screen
+![Home Screen](https://github.com/qarqaz/BusinessCardManagerFrontend/blob/StableReleaseV1/src/assets/Home.png)
+
+### Create & Import Business Cards
+![Create & Import Business Cards](https://github.com/qarqaz/BusinessCardManagerFrontend/blob/StableReleaseV1/src/assets/CreateImport.png)
+
+### Show & Export Business Cards
+![Show & Export Business Cards](https://github.com/qarqaz/BusinessCardManagerFrontend/blob/StableReleaseV1/src/assets/ShowExport.png)
+
+
