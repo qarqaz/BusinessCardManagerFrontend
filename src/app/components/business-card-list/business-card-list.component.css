@@ -1,0 +1,109 @@
+.business-card-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.business-card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.business-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.business-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.business-card h3 {
+  margin: 0;
+}
+
+.photo-preview {
+  max-width: 100%;
+  max-height: 100px;
+  margin-top: 10px;
+}
+
+.card-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 1.5em;
+  transition: color 0.3s ease;
+}
+
+.delete-icon {
+  color: rgb(255, 59, 59);
+}
+
+.export-icon {
+  color: rgb(33, 188, 255);
+}
+
+.icon:hover {
+  color: darkgray;
+}
+
+.error-message-card {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  background-color: #e74c3c;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.5s ease-in-out, top 0.5s ease-in-out;
+  opacity: 1;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8);
+}

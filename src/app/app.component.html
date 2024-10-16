@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-icons">
+      <a routerLink="/" title="Home">
+        <fa-icon [icon]="faHome"></fa-icon>
+      </a>
+      <a routerLink="/add-business-card" title="Add Business Card">
+        <fa-icon [icon]="faPlusSquare"></fa-icon>
+      </a>
+      <a routerLink="/show-business-cards" title="Cards List">
+        <fa-icon [icon]="faAddressCard"></fa-icon>
+      </a>
+    </div>
+
+    <a routerLink="/" class="navbar-brand">Business Card Manager</a>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,33 @@
+<div class="business-card-list-container">
+  <h2>Business Cards</h2>
+
+  <div class="filter-container">
+    <input type="text" [(ngModel)]="filter.name" placeholder="Filter by Name" class="filter-input" />
+    <input type="text" [(ngModel)]="filter.phone" placeholder="Filter by Phone" class="filter-input" />
+    <input type="text" [(ngModel)]="filter.email" placeholder="Filter by Email" class="filter-input" />
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading...</div>
+
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+
+  <div class="business-card-list">
+    <div *ngFor="let card of filteredBusinessCards()" class="business-card">
+      <h3>{{ card.name }}</h3>
+      <div class="card-actions">
+        <fa-icon [icon]="['fas', 'trash']" (click)="openDeleteDialog(card.id)" class="icon delete-icon"></fa-icon>
+        <fa-icon [icon]="['fas', 'file-export']" (click)="openExportDialog(card.id)" class="icon export-icon"></fa-icon>
+      </div>
+      <p><strong>Gender:</strong> {{ card.gender ? 'Male' : 'Female' }}</p>
+      <p><strong>Date of Birth:</strong> {{ card.dateOfBirth | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Email:</strong> {{ card.email }}</p>
+      <p><strong>Phone:</strong> {{ card.phone }}</p>
+      <p><strong>Address:</strong> {{ card.address }}</p>
+      <img *ngIf="card.photo" [src]="card.photo" alt="{{ card.name }}'s Photo" class="photo-preview" />
+    </div>
+  </div>
+
+  <div *ngIf="showErrorMessage" class="error-message-card">
+    {{ errorMessage }}
+  </div>
+</div>

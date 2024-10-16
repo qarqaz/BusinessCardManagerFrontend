@@ -1,0 +1,74 @@
+<div class="form-container">
+  <h2>Add New Business Card</h2>
+  <p>Please fill the card information or simply drag and drop an XML, CSV, or upload it here.</p>
+
+  <div class="form-content">
+    <form [formGroup]="businessCardForm" (ngSubmit)="onSubmit()" class="form-left">
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" />
+      </div>
+
+      <div>
+        <label for="gender">Gender:</label>
+        <select id="gender" formControlName="gender">
+          <option value="">Select Gender</option>
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+        </select>
+        <div
+          *ngIf="businessCardForm.controls['gender'].hasError('required') && businessCardForm.controls['gender'].touched">
+          <div class="error-message">Gender is required.</div>
+        </div>
+      </div>
+
+      <div>
+        <label for="dateOfBirth">Date of Birth:</label>
+        <input type="date" id="dateOfBirth" formControlName="dateOfBirth" />
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" />
+      </div>
+
+      <div>
+        <label for="phone">Phone:</label>
+        <input id="phone" formControlName="phone" />
+      </div>
+
+      <div>
+        <label for="address">Address:</label>
+        <input id="address" formControlName="address" />
+      </div>
+
+      <div>
+        <label for="photo">Photo (Optional, 1MB Max):</label>
+        <input type="file" id="photo" (change)="onPhotoSelected($event)" />
+        <div *ngIf="photoError" class="error-message">{{ photoError }}</div>
+        <img *ngIf="photoPreview" [src]="photoPreview" alt="Photo Preview" />
+      </div>
+
+
+      <button type="submit" [disabled]="businessCardForm.invalid">Submit</button>
+    </form>
+
+    <div class="upload-section">
+      <div class="drop-zone" [class.drag-over]="isDragOver" (drop)="onFileDrop($event)" (dragover)="onDragOver($event)"
+        (dragleave)="onDragLeave()">
+        <p>Drag and drop XML / CSV file here</p>
+        <button (click)="fileInput.click()">Upload XML / CSV File</button>
+        <input #fileInput type="file" (change)="onBusinessCardFileSelected($event)" hidden />
+      </div>
+
+      <p *ngIf="!businessCardError && uploadedFileName">Uploaded File: {{ uploadedFileName }}</p>
+
+      <div *ngIf="businessCardError" class="error-message">{{ businessCardError }}</div>
+    </div>
+
+    <div *ngIf="showSuccessMessage" class="success-message">
+      Business card added successfully!
+      <button (click)="navigateToCards()" class="show-cards-button">Show My Cards</button>
+    </div>
+  </div>
+</div>
